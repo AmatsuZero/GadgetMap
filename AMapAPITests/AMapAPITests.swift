@@ -40,13 +40,20 @@ class AMapAPITests: XCTestCase {
         let decoder = JSONDecoder()
         let expection = XCTestExpectation(description: "逆地理编码")
         let location = CLLocation.init(latitude: 116.310003, longitude: 39.991957)
-        let req = RegeoRequest(location: [location])
+        var req = RegeoRequest(location: [location])
+        req.poitype = ["商务写字楼"]
+        req.radius = 1000
+        req.extensions = .all
+        req.batch = false
+        req.roadlevel = .none
         URLSession.shared.dataTask(with: req.toURLComponents().url!) { data, response, error in
             if let jsonData = data {
                 do {
                     let geocode = try decoder.decode(RegeoResponse.self, from: jsonData)
                     print(geocode)
                 } catch(let e) {
+                    let ddd = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
+                    print(ddd ?? "Empty")
                     XCTFail(e.localizedDescription)
                 }
             }

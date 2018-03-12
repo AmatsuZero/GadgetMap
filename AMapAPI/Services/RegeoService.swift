@@ -31,7 +31,7 @@ public struct RegeoRequest {
     /// 经纬度坐标
     var location: [CLLocation]
     /// 返回附近POI类型
-    var poitype: [Int]?
+    var poitype: [String]?
     /// 搜索半径
     var radius: Int
     /// 返回结果控制
@@ -47,7 +47,7 @@ public struct RegeoRequest {
     var callback: String?
     /// 是否优化POI返回顺序
     var strategy: RegeoPOIStrategy?
-    init(location: [CLLocation], poitype: [Int]? = nil,
+    init(location: [CLLocation], poitype: [String]? = nil,
          radius: Int = 1000, extensions: RegeoRequestExtension = .base,
          batch: Bool = false, roadLevel: RegeoRoadMapLevel? = nil,
          sig: Bool = false, output: AMapOutputType = .json,
@@ -74,7 +74,7 @@ public struct RegeoResponse: Codable {
     struct RegeoCode: Codable {
         struct RegeoAddressComponent: Codable {
             let province: String
-            let city: [String]
+            let city: String?
             let cityCode: String
             let district: String
             let adcode: String
@@ -90,6 +90,21 @@ public struct RegeoResponse: Codable {
                 case building, streetNumber, country, businessAreas
                 case cityCode = "citycode"
             }
+            public init(from decoder: Decoder) throws {
+                let values = try decoder.container(keyedBy: CodingKeys.self)
+                province = try values.decode(String.self, forKey: .province)
+                city = try? values.decode(String.self, forKey: .city)
+                cityCode = try values.decode(String.self, forKey: .cityCode)
+                district = try values.decode(String.self, forKey: .district)
+                adcode = try values.decode(String.self, forKey: .adcode)
+                township = try values.decode(String.self, forKey: .township)
+                towncode = try values.decode(String.self, forKey: .towncode)
+                neighborhood = try values.decode(GeoNeighborhood.self, forKey: .neighborhood)
+                building = try values.decode(GeoBuilding.self, forKey: .building)
+                streetNumber = try values.decode(GeoStreet.self, forKey: .streetNumber)
+                country = try values.decode(String.self, forKey: .country)
+                businessAreas = try? values.decode(Array<GeoBusiness>.self, forKey: .businessAreas)
+            }
         }
         let formattedAddress: String
         let addressComponent: RegeoAddressComponent
@@ -102,12 +117,19 @@ public struct RegeoResponse: Codable {
             case addressComponent, roads, roadinters, pois, aois
         }
     }
-    let status: String
-    let info: String
-    let infoCode: String
+    private let status: String
+    private let info: String
+    private let infoCode: Int
     let regeoCode: RegeoCode
 
-    func errorInfo() -> Error? {
-        return ServiceError(code: Int(info)!)
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decode(String.self, forKey: .status)
+        infoCode = (try Int(values.decode(String.self, forKey: .infoCode)))!
+        guard status == "1" else {
+            throw ServiceError(code: infoCode)!
+        }
+        info = try values.decode(String.self, forKey: .info)
+        regeoCode = try values.decode(RegeoCode.self, forKey: .regeoCode)
     }
 }

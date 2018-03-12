@@ -59,7 +59,7 @@ extension RegeoRequest: RequestBuildable {
         let locations = location.map { "\($0.coordinate.latitude),\($0.coordinate.longitude)" }.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 }
         let locItem = URLQueryItem(name: "location", value: locations)
         let keyItem = URLQueryItem(name: "key", value: AMapManager.shared?.token)
-        let pois = poitype?.map { "\($0)" }.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 }
+        let pois = poitype?.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 }
         let poiItem = URLQueryItem(name: "poitype", value: pois)
         let radiusItem = URLQueryItem(name: "radius", value: "\(radius)")
         let extItem = URLQueryItem(name: "extensions", value: extensions.rawValue)

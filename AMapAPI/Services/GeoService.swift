@@ -52,9 +52,9 @@ public struct GeoResponse: Codable {
         var city: String
         let cityCode: String
         let district: String
-        let township: [String]
-        let street: [String]
-        let number: [String]
+        let township: String?
+        let street: String?
+        let number: String?
         let adcode: String
         let location: String
         let building: GeoBuilding
@@ -87,22 +87,38 @@ public struct GeoResponse: Codable {
             case unknown = "未知"
         }
 
-        var cllocation: CLLocation? {
+        public init(from decoder: Decoder) throws {
+            let values = try decoder.container(keyedBy: CodingKeys.self)
+            formattedAddress = try values.decode(String.self, forKey: .formattedAddress)
+            province = try values.decode(String.self, forKey: .province)
+            city = try values.decode(String.self, forKey: .city)
+            cityCode = try values.decode(String.self, forKey: .cityCode)
+            district = try values.decode(String.self, forKey: .district)
+            township = try? values.decode(String.self, forKey: .township)
+            street = try? values.decode(String.self, forKey: .street)
+            number = try? values.decode(String.self, forKey: .number)
+            adcode = try values.decode(String.self, forKey: .adcode)
+            location = try values.decode(String.self, forKey: .location)
+            building = try values.decode(GeoBuilding.self, forKey: .building)
+            neighborhood = try values.decode(GeoNeighborhood.self, forKey: .neighborhood)
+            level = try values.decode(GeoLevel.self, forKey: .level)
+        }
+
+        var clLocation: CLLocation? {
             let coordinates = location.components(separatedBy: ",")
-            guard let lat = coordinates.first,
-                let lon = coordinates.last,
+            guard let lat = coordinates.first, let lon = coordinates.last,
                 let latitude = CLLocationDegrees(lat),
                 let longitude = CLLocationDegrees(lon) else {
-                return nil
+                    return nil
             }
             return CLLocation(latitude: latitude, longitude: longitude)
         }
     }
     
-    let status: String
-    let info: String
-    let infoCode: String
-    let count: String
+    private let status: String
+    private let info: String
+    private let infoCode: Int
+    private let count: Int
     let geoCodes: [Geocode]
 
     enum CodingKeys: String, CodingKey {
@@ -111,8 +127,15 @@ public struct GeoResponse: Codable {
         case status, info, count
     }
 
-    func errorInfo() -> Error? {
-        return ServiceError(code: Int(infoCode)!)
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decode(String.self, forKey: .status)
+        infoCode = (try Int(values.decode(String.self, forKey: .infoCode)))!
+        guard status == "1" else {
+            throw ServiceError(code: infoCode)!
+        }
+        info = try values.decode(String.self, forKey: .info)
+        count = (try Int(values.decode(String.self, forKey: .count)))!
+        geoCodes = try values.decode(Array<Geocode>.self, forKey: .geoCodes)
     }
 }
-

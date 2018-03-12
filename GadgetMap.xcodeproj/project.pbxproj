@@ -28,6 +28,7 @@
 		215CF264205689490031CAE3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF262205689490031CAE3 /* Sort.swift */; };
 		215CF2662056895A0031CAE3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
 		215CF2672056895A0031CAE3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
+		215CF269205699FF0031CAE3 /* SortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF268205699FF0031CAE3 /* SortTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		215CF25D205684300031CAE3 /* BasicInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfo.swift; sourceTree = "<group>"; };
 		215CF262205689490031CAE3 /* Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		215CF265205689590031CAE3 /* BinaryTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTree.swift; sourceTree = "<group>"; };
+		215CF268205699FF0031CAE3 /* SortTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				215CF240205586140031CAE3 /* AMapAPITests.swift */,
+				215CF268205699FF0031CAE3 /* SortTest.swift */,
 				215CF242205586140031CAE3 /* Info.plist */,
 			);
 			path = AMapAPITests;
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				215CF241205586140031CAE3 /* AMapAPITests.swift in Sources */,
+				215CF269205699FF0031CAE3 /* SortTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,7 +529,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TCU9L9SQC4;
@@ -550,7 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TCU9L9SQC4;
