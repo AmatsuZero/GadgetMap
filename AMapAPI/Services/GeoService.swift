@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreLocation
 
 public struct GeoRequest {
     /// 结构化地址信息

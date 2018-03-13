@@ -34,4 +34,3 @@ public final class AMapManager {
         return shared!
     }
 }
-

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		214576B82056CFB0009847E3 /* GeoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576B72056CFB0009847E3 /* GeoSearchService.swift */; };
+		214576B92056CFB0009847E3 /* GeoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576B72056CFB0009847E3 /* GeoSearchService.swift */; };
+		214576BA2056D7F3009847E3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
+		214576BB2056D7F7009847E3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF262205689490031CAE3 /* Sort.swift */; };
+		214576BE2056D90F009847E3 /* CoordinateQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */; };
+		214576C12056D929009847E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214576C02056D929009847E3 /* MapKit.framework */; };
 		215CF228205584690031CAE3 /* GadgetMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 215CF226205584690031CAE3 /* GadgetMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		215CF23C205586140031CAE3 /* AMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215CF233205586130031CAE3 /* AMapAPI.framework */; };
 		215CF241205586140031CAE3 /* AMapAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF240205586140031CAE3 /* AMapAPITests.swift */; };
@@ -19,15 +25,10 @@
 		215CF25520564D580031CAE3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF250205631FC0031CAE3 /* Error.swift */; };
 		215CF25620564D5A0031CAE3 /* RequestBuillder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF25220563F540031CAE3 /* RequestBuillder.swift */; };
 		215CF25720564D5E0031CAE3 /* GeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF24E205631D70031CAE3 /* GeoService.swift */; };
-		215CF25820564D620031CAE3 /* AMapAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 215CF235205586130031CAE3 /* AMapAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		215CF25A20566BF30031CAE3 /* RegeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF25920566BF30031CAE3 /* RegeoService.swift */; };
 		215CF25E205684300031CAE3 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF25D205684300031CAE3 /* BasicInfo.swift */; };
 		215CF25F205688740031CAE3 /* BasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF25D205684300031CAE3 /* BasicInfo.swift */; };
 		215CF260205688780031CAE3 /* RegeoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF25920566BF30031CAE3 /* RegeoService.swift */; };
-		215CF263205689490031CAE3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF262205689490031CAE3 /* Sort.swift */; };
-		215CF264205689490031CAE3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF262205689490031CAE3 /* Sort.swift */; };
-		215CF2662056895A0031CAE3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
-		215CF2672056895A0031CAE3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
 		215CF269205699FF0031CAE3 /* SortTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF268205699FF0031CAE3 /* SortTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		214576B72056CFB0009847E3 /* GeoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoSearchService.swift; sourceTree = "<group>"; };
+		214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateQuadTree.swift; sourceTree = "<group>"; };
+		214576C02056D929009847E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		215CF223205584690031CAE3 /* GadgetMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GadgetMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215CF226205584690031CAE3 /* GadgetMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GadgetMap.h; sourceTree = "<group>"; };
 		215CF227205584690031CAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214576C12056D929009847E3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214576BC2056D86E009847E3 /* Cluster */ = {
+			isa = PBXGroup;
+			children = (
+				214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */,
+			);
+			path = Cluster;
+			sourceTree = "<group>";
+		};
+		214576BF2056D928009847E3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				214576C02056D929009847E3 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		215CF219205584690031CAE3 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +116,7 @@
 				215CF234205586130031CAE3 /* AMapAPI */,
 				215CF23F205586140031CAE3 /* AMapAPITests */,
 				215CF224205584690031CAE3 /* Products */,
+				214576BF2056D928009847E3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,7 +142,7 @@
 		215CF234205586130031CAE3 /* AMapAPI */ = {
 			isa = PBXGroup;
 			children = (
-				215CF2612056893B0031CAE3 /* Extensions */,
+				214576BC2056D86E009847E3 /* Cluster */,
 				215CF24D205631B00031CAE3 /* Services */,
 				215CF24A205631410031CAE3 /* Network */,
 				215CF235205586130031CAE3 /* AMapAPI.h */,
@@ -133,6 +155,7 @@
 		215CF23F205586140031CAE3 /* AMapAPITests */ = {
 			isa = PBXGroup;
 			children = (
+				215CF2612056893B0031CAE3 /* Extensions */,
 				215CF240205586140031CAE3 /* AMapAPITests.swift */,
 				215CF268205699FF0031CAE3 /* SortTest.swift */,
 				215CF242205586140031CAE3 /* Info.plist */,
@@ -155,6 +178,7 @@
 				215CF24E205631D70031CAE3 /* GeoService.swift */,
 				215CF25920566BF30031CAE3 /* RegeoService.swift */,
 				215CF25D205684300031CAE3 /* BasicInfo.swift */,
+				214576B72056CFB0009847E3 /* GeoSearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,7 +199,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215CF25820564D620031CAE3 /* AMapAPI.h in Headers */,
 				215CF228205584690031CAE3 /* GadgetMap.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,12 +341,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215CF2662056895A0031CAE3 /* BinaryTree.swift in Sources */,
 				215CF260205688780031CAE3 /* RegeoService.swift in Sources */,
 				215CF25620564D5A0031CAE3 /* RequestBuillder.swift in Sources */,
 				215CF25520564D580031CAE3 /* Error.swift in Sources */,
 				215CF25420564D550031CAE3 /* AMapManager.swift in Sources */,
-				215CF263205689490031CAE3 /* Sort.swift in Sources */,
+				214576B82056CFB0009847E3 /* GeoSearchService.swift in Sources */,
 				215CF25F205688740031CAE3 /* BasicInfo.swift in Sources */,
 				215CF25720564D5E0031CAE3 /* GeoService.swift in Sources */,
 			);
@@ -333,13 +355,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				215CF2672056895A0031CAE3 /* BinaryTree.swift in Sources */,
 				215CF25E205684300031CAE3 /* BasicInfo.swift in Sources */,
 				215CF25320563F540031CAE3 /* RequestBuillder.swift in Sources */,
 				215CF24C2056315C0031CAE3 /* AMapManager.swift in Sources */,
 				215CF251205631FC0031CAE3 /* Error.swift in Sources */,
-				215CF264205689490031CAE3 /* Sort.swift in Sources */,
+				214576B92056CFB0009847E3 /* GeoSearchService.swift in Sources */,
 				215CF25A20566BF30031CAE3 /* RegeoService.swift in Sources */,
+				214576BE2056D90F009847E3 /* CoordinateQuadTree.swift in Sources */,
 				215CF24F205631D70031CAE3 /* GeoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +371,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				215CF241205586140031CAE3 /* AMapAPITests.swift in Sources */,
+				214576BB2056D7F7009847E3 /* Sort.swift in Sources */,
 				215CF269205699FF0031CAE3 /* SortTest.swift in Sources */,
+				214576BA2056D7F3009847E3 /* BinaryTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

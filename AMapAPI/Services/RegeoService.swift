@@ -7,13 +7,8 @@
 //
 
 import Foundation
-import CoreLocation
 
 public struct RegeoRequest {
-    enum RegeoRequestExtension: String {
-        case base = "base"
-        case all = "all"
-    }
     enum RegeoRoadMapLevel: Int {
         /// 显示所有道路
         case all = 0
@@ -35,7 +30,7 @@ public struct RegeoRequest {
     /// 搜索半径
     var radius: Int
     /// 返回结果控制
-    var extensions: RegeoRequestExtension
+    var extensions: GeoRequestExtension
     /// 批量查询控制
     var batch: Bool
     /// 道路等级
@@ -48,7 +43,7 @@ public struct RegeoRequest {
     /// 是否优化POI返回顺序
     var strategy: RegeoPOIStrategy?
     init(location: [CLLocation], poitype: [String]? = nil,
-         radius: Int = 1000, extensions: RegeoRequestExtension = .base,
+         radius: Int = 1000, extensions: GeoRequestExtension = .base,
          batch: Bool = false, roadLevel: RegeoRoadMapLevel? = nil,
          sig: Bool = false, output: AMapOutputType = .json,
          callback: String? = nil, homeorcorp: RegeoPOIStrategy? = .none) {

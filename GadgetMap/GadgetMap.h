@@ -7,7 +7,7 @@
 //
 
 #import <WatchKit/WatchKit.h>
-
+#import <CoreLocation/CoreLocation.h>
 //! Project version number for GadgetMap.
 FOUNDATION_EXPORT double GadgetMapVersionNumber;
 

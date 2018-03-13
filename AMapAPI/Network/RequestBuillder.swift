@@ -40,7 +40,7 @@ extension GeoRequest: RequestBuildable {
         let outputItem = URLQueryItem(name: "output", value: output.rawValue)
         let callbackItem = URLQueryItem(name: "callback", value: callback)
         let keyItem = URLQueryItem(name: "key", value: AMapManager.shared?.token)
-        let sigItem = URLQueryItem(name: "sig", value: components?.sig)
+        let sigItem = URLQueryItem(name: "sig", value: sig ? components?.sig: nil)
         components?.queryItems = [addressItem, cityItem, batchItem, sigItem, outputItem, callbackItem, keyItem]
         return components!
     }
@@ -75,9 +75,36 @@ extension RegeoRequest: RequestBuildable {
             let item = URLQueryItem(name: "homeorcorp", value: "\(value)")
             items.append(item)
         }
-        let sigItem = URLQueryItem(name: "sig", value: components?.sig)
+        let sigItem = URLQueryItem(name: "sig", value: sig ? components?.sig : nil)
         items.append(sigItem)
         components?.queryItems = items
+        return components!
+    }
+}
+
+extension GeoSearchService: RequestBuildable {
+    typealias ResponseType = GeoSearchResponse
+    func toURLComponents() -> URLComponents {
+        let url = URL.amapBaseURL.appendingPathComponent("place").appendingPathComponent("text")
+        var components = URLComponents(string: url.absoluteString)
+        let kwItem = URLQueryItem(name: "keywords",
+                                  value: keywords.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 })
+        let typesItem = URLQueryItem(name: "types",
+                                     value: types.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 })
+        let cityItem = URLQueryItem(name: "city", value: city)
+        let childrenItem = URLQueryItem(name: "children", value: showChildren ? "\(1)" : "\(0)")
+        let limitItem = URLQueryItem(name: "citylimit", value: "\(cityLimit)")
+        let offSetItem = URLQueryItem(name: "offset", value: "\(offset)")
+        let pageItem = URLQueryItem(name: "page", value: "\(page)")
+        let buildingItem = URLQueryItem(name: "building", value: building)
+        let floorItem = URLQueryItem(name: "floor", value: floor)
+        let extItem = URLQueryItem(name: "extensions", value: extensions.rawValue)
+        let outputItem = URLQueryItem(name: "output", value: output.rawValue)
+        let callbackItem = URLQueryItem(name: "callback", value: callback)
+        let keyItem = URLQueryItem(name: "key", value: AMapManager.shared?.token)
+        let sigItem = URLQueryItem(name: "sig", value: sig ? components?.sig : nil)
+        components?.queryItems = [kwItem, typesItem, cityItem, childrenItem, limitItem, offSetItem,pageItem,
+                                  buildingItem, floorItem, extItem, sigItem, outputItem, callbackItem, keyItem]
         return components!
     }
 }

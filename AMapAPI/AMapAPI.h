@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreLocation/CoreLocation.h>
 //! Project version number for AMapAPI.
 FOUNDATION_EXPORT double AMapAPIVersionNumber;
 

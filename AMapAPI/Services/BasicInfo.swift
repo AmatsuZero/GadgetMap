@@ -8,6 +8,15 @@
 
 import Foundation
 
+/// 返回结果控制
+///
+/// - base: 基本地址信息
+/// - all: 取值为all返回地址信息、附近POI、道路以及道路交叉口信息
+public enum GeoRequestExtension: String {
+    case base = "base"
+    case all = "all"
+}
+
 public struct GeoBuilding: Codable {
     let name: String?
     let type: String?

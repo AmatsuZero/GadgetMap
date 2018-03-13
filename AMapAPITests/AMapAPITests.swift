@@ -61,4 +61,29 @@ class AMapAPITests: XCTestCase {
         }.resume()
         wait(for: [expection], timeout: 300)
     }
+
+    func testSearch() {
+        let decoder = JSONDecoder()
+        let expection = XCTestExpectation(description: "搜索")
+        var req = GeoSearchService(keywords: ["北京大学"], types: ["高等院校"])
+        req.city = "北京"
+        req.showChildren = true
+        req.offset = 20
+        req.page = 1
+        req.extensions = .all
+        URLSession.shared.dataTask(with: req.toURLComponents().url!) { data, response, error in
+            if let jsonData = data {
+                do {
+                    let geocode = try decoder.decode(GeoSearchResponse.self, from: jsonData)
+                    print(geocode)
+                } catch(let e) {
+                    let ddd = try? JSONSerialization.jsonObject(with: jsonData, options: .allowFragments)
+                    print(ddd ?? "Empty")
+                    XCTFail(e.localizedDescription)
+                }
+            }
+            expection.fulfill()
+            }.resume()
+        wait(for: [expection], timeout: 300)
+    }
 }
