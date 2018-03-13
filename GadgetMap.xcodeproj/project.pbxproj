@@ -11,8 +11,24 @@
 		214576B92056CFB0009847E3 /* GeoSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576B72056CFB0009847E3 /* GeoSearchService.swift */; };
 		214576BA2056D7F3009847E3 /* BinaryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF265205689590031CAE3 /* BinaryTree.swift */; };
 		214576BB2056D7F7009847E3 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF262205689490031CAE3 /* Sort.swift */; };
-		214576BE2056D90F009847E3 /* CoordinateQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */; };
+		214576BE2056D90F009847E3 /* GeoQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576BD2056D90F009847E3 /* GeoQuadTree.swift */; };
 		214576C12056D929009847E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214576C02056D929009847E3 /* MapKit.framework */; };
+		214576C42057AB5B009847E3 /* GeoQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576BD2056D90F009847E3 /* GeoQuadTree.swift */; };
+		214576C62057AB81009847E3 /* GeoCoordinateQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576C52057AB81009847E3 /* GeoCoordinateQuadTree.swift */; };
+		214576C82057AC4B009847E3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214576C72057AC4B009847E3 /* MapKit.framework */; };
+		214576CA2057AD68009847E3 /* GeoCoordinateQuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576C52057AB81009847E3 /* GeoCoordinateQuadTree.swift */; };
+		214576CD2057BE20009847E3 /* GeoClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576CC2057BE20009847E3 /* GeoClusterAnnotationView.swift */; };
+		214576D12057C056009847E3 /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576D02057C056009847E3 /* ValueExtensions.swift */; };
+		214576D22057C05F009847E3 /* ValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576D02057C056009847E3 /* ValueExtensions.swift */; };
+		214576D42057CBF6009847E3 /* GeoClusterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576D32057CBF6009847E3 /* GeoClusterAnnotation.swift */; };
+		214576D52057CD63009847E3 /* GeoClusterAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576D32057CBF6009847E3 /* GeoClusterAnnotation.swift */; };
+		214576DD2057D01B009847E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576DC2057D01B009847E3 /* AppDelegate.swift */; };
+		214576DF2057D01B009847E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214576DE2057D01B009847E3 /* ViewController.swift */; };
+		214576E22057D01B009847E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214576E02057D01B009847E3 /* Main.storyboard */; };
+		214576E42057D01D009847E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214576E32057D01D009847E3 /* Assets.xcassets */; };
+		214576E72057D01D009847E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214576E52057D01D009847E3 /* LaunchScreen.storyboard */; };
+		214576EC2057D152009847E3 /* AMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215CF233205586130031CAE3 /* AMapAPI.framework */; };
+		214576ED2057D152009847E3 /* AMapAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 215CF233205586130031CAE3 /* AMapAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		215CF228205584690031CAE3 /* GadgetMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 215CF226205584690031CAE3 /* GadgetMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		215CF23C205586140031CAE3 /* AMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215CF233205586130031CAE3 /* AMapAPI.framework */; };
 		215CF241205586140031CAE3 /* AMapAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CF240205586140031CAE3 /* AMapAPITests.swift */; };
@@ -33,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		214576EE2057D152009847E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 215CF21A205584690031CAE3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 215CF232205586130031CAE3;
+			remoteInfo = AMapAPI;
+		};
 		215CF23D205586140031CAE3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 215CF21A205584690031CAE3 /* Project object */;
@@ -42,10 +65,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		214576F02057D153009847E3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				214576ED2057D152009847E3 /* AMapAPI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		214576B72056CFB0009847E3 /* GeoSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoSearchService.swift; sourceTree = "<group>"; };
-		214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateQuadTree.swift; sourceTree = "<group>"; };
+		214576BD2056D90F009847E3 /* GeoQuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoQuadTree.swift; sourceTree = "<group>"; };
 		214576C02056D929009847E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
+		214576C52057AB81009847E3 /* GeoCoordinateQuadTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoordinateQuadTree.swift; sourceTree = "<group>"; };
+		214576C72057AC4B009847E3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		214576CC2057BE20009847E3 /* GeoClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoClusterAnnotationView.swift; sourceTree = "<group>"; };
+		214576D02057C056009847E3 /* ValueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueExtensions.swift; sourceTree = "<group>"; };
+		214576D32057CBF6009847E3 /* GeoClusterAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoClusterAnnotation.swift; sourceTree = "<group>"; };
+		214576DA2057D01B009847E3 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		214576DC2057D01B009847E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		214576DE2057D01B009847E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		214576E12057D01B009847E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		214576E32057D01D009847E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		214576E62057D01D009847E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		214576E82057D01D009847E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		215CF223205584690031CAE3 /* GadgetMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GadgetMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		215CF226205584690031CAE3 /* GadgetMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GadgetMap.h; sourceTree = "<group>"; };
 		215CF227205584690031CAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,10 +116,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		214576D72057D01B009847E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214576EC2057D152009847E3 /* AMapAPI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		215CF21F205584690031CAE3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214576C82057AC4B009847E3 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +154,10 @@
 		214576BC2056D86E009847E3 /* Cluster */ = {
 			isa = PBXGroup;
 			children = (
-				214576BD2056D90F009847E3 /* CoordinateQuadTree.swift */,
+				214576BD2056D90F009847E3 /* GeoQuadTree.swift */,
+				214576C52057AB81009847E3 /* GeoCoordinateQuadTree.swift */,
+				214576CC2057BE20009847E3 /* GeoClusterAnnotationView.swift */,
+				214576D32057CBF6009847E3 /* GeoClusterAnnotation.swift */,
 			);
 			path = Cluster;
 			sourceTree = "<group>";
@@ -104,9 +165,31 @@
 		214576BF2056D928009847E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				214576C72057AC4B009847E3 /* MapKit.framework */,
 				214576C02056D929009847E3 /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		214576CF2057C044009847E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				214576D02057C056009847E3 /* ValueExtensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		214576DB2057D01B009847E3 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				214576DC2057D01B009847E3 /* AppDelegate.swift */,
+				214576DE2057D01B009847E3 /* ViewController.swift */,
+				214576E02057D01B009847E3 /* Main.storyboard */,
+				214576E32057D01D009847E3 /* Assets.xcassets */,
+				214576E52057D01D009847E3 /* LaunchScreen.storyboard */,
+				214576E82057D01D009847E3 /* Info.plist */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 		215CF219205584690031CAE3 = {
@@ -115,6 +198,7 @@
 				215CF225205584690031CAE3 /* GadgetMap */,
 				215CF234205586130031CAE3 /* AMapAPI */,
 				215CF23F205586140031CAE3 /* AMapAPITests */,
+				214576DB2057D01B009847E3 /* Demo */,
 				215CF224205584690031CAE3 /* Products */,
 				214576BF2056D928009847E3 /* Frameworks */,
 			);
@@ -126,6 +210,7 @@
 				215CF223205584690031CAE3 /* GadgetMap.framework */,
 				215CF233205586130031CAE3 /* AMapAPI.framework */,
 				215CF23B205586140031CAE3 /* AMapAPITests.xctest */,
+				214576DA2057D01B009847E3 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +227,7 @@
 		215CF234205586130031CAE3 /* AMapAPI */ = {
 			isa = PBXGroup;
 			children = (
+				214576CF2057C044009847E3 /* Extension */,
 				214576BC2056D86E009847E3 /* Cluster */,
 				215CF24D205631B00031CAE3 /* Services */,
 				215CF24A205631410031CAE3 /* Network */,
@@ -214,6 +300,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		214576D92057D01B009847E3 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 214576E92057D01D009847E3 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				214576D62057D01B009847E3 /* Sources */,
+				214576D72057D01B009847E3 /* Frameworks */,
+				214576D82057D01B009847E3 /* Resources */,
+				214576F02057D153009847E3 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				214576EF2057D152009847E3 /* PBXTargetDependency */,
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 214576DA2057D01B009847E3 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
 		215CF222205584690031CAE3 /* GadgetMap */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 215CF22B205584690031CAE3 /* Build configuration list for PBXNativeTarget "GadgetMap" */;
@@ -278,6 +383,10 @@
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = MockingBot;
 				TargetAttributes = {
+					214576D92057D01B009847E3 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+					};
 					215CF222205584690031CAE3 = {
 						CreatedOnToolsVersion = 9.3;
 						ProvisioningStyle = Automatic;
@@ -299,6 +408,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 215CF219205584690031CAE3;
 			productRefGroup = 215CF224205584690031CAE3 /* Products */;
@@ -308,11 +418,22 @@
 				215CF222205584690031CAE3 /* GadgetMap */,
 				215CF232205586130031CAE3 /* AMapAPI */,
 				215CF23A205586140031CAE3 /* AMapAPITests */,
+				214576D92057D01B009847E3 /* Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		214576D82057D01B009847E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214576E72057D01D009847E3 /* LaunchScreen.storyboard in Resources */,
+				214576E42057D01D009847E3 /* Assets.xcassets in Resources */,
+				214576E22057D01B009847E3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		215CF221205584690031CAE3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -337,15 +458,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		214576D62057D01B009847E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				214576DF2057D01B009847E3 /* ViewController.swift in Sources */,
+				214576DD2057D01B009847E3 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		215CF21E205584690031CAE3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214576CA2057AD68009847E3 /* GeoCoordinateQuadTree.swift in Sources */,
+				214576D52057CD63009847E3 /* GeoClusterAnnotation.swift in Sources */,
 				215CF260205688780031CAE3 /* RegeoService.swift in Sources */,
 				215CF25620564D5A0031CAE3 /* RequestBuillder.swift in Sources */,
+				214576C42057AB5B009847E3 /* GeoQuadTree.swift in Sources */,
 				215CF25520564D580031CAE3 /* Error.swift in Sources */,
 				215CF25420564D550031CAE3 /* AMapManager.swift in Sources */,
 				214576B82056CFB0009847E3 /* GeoSearchService.swift in Sources */,
+				214576D22057C05F009847E3 /* ValueExtensions.swift in Sources */,
 				215CF25F205688740031CAE3 /* BasicInfo.swift in Sources */,
 				215CF25720564D5E0031CAE3 /* GeoService.swift in Sources */,
 			);
@@ -355,13 +489,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214576C62057AB81009847E3 /* GeoCoordinateQuadTree.swift in Sources */,
+				214576D42057CBF6009847E3 /* GeoClusterAnnotation.swift in Sources */,
 				215CF25E205684300031CAE3 /* BasicInfo.swift in Sources */,
+				214576CD2057BE20009847E3 /* GeoClusterAnnotationView.swift in Sources */,
 				215CF25320563F540031CAE3 /* RequestBuillder.swift in Sources */,
 				215CF24C2056315C0031CAE3 /* AMapManager.swift in Sources */,
 				215CF251205631FC0031CAE3 /* Error.swift in Sources */,
 				214576B92056CFB0009847E3 /* GeoSearchService.swift in Sources */,
 				215CF25A20566BF30031CAE3 /* RegeoService.swift in Sources */,
-				214576BE2056D90F009847E3 /* CoordinateQuadTree.swift in Sources */,
+				214576D12057C056009847E3 /* ValueExtensions.swift in Sources */,
+				214576BE2056D90F009847E3 /* GeoQuadTree.swift in Sources */,
 				215CF24F205631D70031CAE3 /* GeoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +518,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		214576EF2057D152009847E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 215CF232205586130031CAE3 /* AMapAPI */;
+			targetProxy = 214576EE2057D152009847E3 /* PBXContainerItemProxy */;
+		};
 		215CF23E205586140031CAE3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 215CF232205586130031CAE3 /* AMapAPI */;
@@ -387,7 +530,64 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		214576E02057D01B009847E3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				214576E12057D01B009847E3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		214576E52057D01D009847E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				214576E62057D01D009847E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		214576EA2057D01D009847E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MockingBot.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		214576EB2057D01D009847E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TCU9L9SQC4;
+				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MockingBot.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		215CF229205584690031CAE3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -553,7 +753,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TCU9L9SQC4;
@@ -578,7 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = TCU9L9SQC4;
@@ -637,6 +837,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		214576E92057D01D009847E3 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				214576EA2057D01D009847E3 /* Debug */,
+				214576EB2057D01D009847E3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		215CF21D205584690031CAE3 /* Build configuration list for PBXProject "GadgetMap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

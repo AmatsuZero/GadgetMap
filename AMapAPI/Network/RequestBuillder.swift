@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RequestBuildable {
+public protocol RequestBuildable {
     associatedtype ResponseType
     func toURLComponents() -> URLComponents
 }
@@ -29,7 +29,7 @@ extension URLComponents {
 }
 
 extension GeoRequest: RequestBuildable {
-    typealias ResponseType = GeoResponse
+    public typealias ResponseType = GeoResponse
     public func toURLComponents() -> URLComponents {
         let url = URL.amapBaseURL.appendingPathComponent("geocode").appendingPathComponent("geo")
         var components = URLComponents(string: url.absoluteString)
@@ -52,8 +52,8 @@ extension GeoRequest: RequestBuildable {
 }
 
 extension RegeoRequest: RequestBuildable {
-    typealias ResponseType = RegeoResponse
-    func toURLComponents() -> URLComponents {
+    public typealias ResponseType = RegeoResponse
+    public func toURLComponents() -> URLComponents {
         let url = URL.amapBaseURL.appendingPathComponent("geocode").appendingPathComponent("regeo")
         var components = URLComponents(string: url.absoluteString)
         let locations = location.map { "\($0.coordinate.latitude),\($0.coordinate.longitude)" }.reduce("") { return $0.isEmpty ? $1 : $0 + "|" + $1 }
@@ -83,8 +83,8 @@ extension RegeoRequest: RequestBuildable {
 }
 
 extension GeoSearchService: RequestBuildable {
-    typealias ResponseType = GeoSearchResponse
-    func toURLComponents() -> URLComponents {
+    public typealias ResponseType = GeoSearchResponse
+    public func toURLComponents() -> URLComponents {
         let url = URL.amapBaseURL.appendingPathComponent("place").appendingPathComponent("text")
         var components = URLComponents(string: url.absoluteString)
         let kwItem = URLQueryItem(name: "keywords",

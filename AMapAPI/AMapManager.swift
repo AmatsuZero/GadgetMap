@@ -22,13 +22,8 @@ public final class AMapManager {
         self.privateKey = privateKey
     }
 
-    enum AMapService {
-        case geo(GeoRequest)
-        case regeo(RegeoRequest)
-    }
-
     @discardableResult
-    class func initialize(key: String, privateKey: String = "") -> AMapManager {
+    public class func initialize(key: String, privateKey: String = "") -> AMapManager {
         guard shared == nil  else { return shared! }
         shared = AMapManager(key: key, privateKey: privateKey)
         return shared!

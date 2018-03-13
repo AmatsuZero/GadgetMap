@@ -10,33 +10,33 @@ import Foundation
 
 public struct GeoSearchService {
     /// 查询关键字
-    var keywords: [String]
+    public var keywords: [String]
     /// 查询POI类型
-    var types: [String]
+    public var types: [String]
     /// 查询城市
-    var city: String?
+    public var city: String?
     /// 仅返回指定城市数据
-    var cityLimit: Bool
+    public var cityLimit: Bool
     /// 是否按照层级展示子POI数据
-    var showChildren: Bool
+    public var showChildren: Bool
     /// 每页记录数据
-    var offset: Int
+    public var offset: Int
     /// 当前页数
-    var page: Int
+    public var page: Int
     /// 搜索楼层
-    var floor: String?
+    public var floor: String?
     /// 返回结果控制
-    var extensions: GeoRequestExtension
+    public var extensions: GeoRequestExtension
     /// 数字签名
-    var sig: Bool
+    public var sig: Bool
     /// 返回数据格式类型
-    var output: AMapOutputType
+    public var output: AMapOutputType
     /// 回调函数
-    var callback: String?
+    public var callback: String?
     /// 建筑物的POI编号
-    var building: String?
+    public var building: String?
 
-    init(keywords: [String], types: [String], city: String? = nil,
+    public init(keywords: [String], types: [String], city: String? = nil,
          cityLimit: Bool = false, showChildren: Bool = false, offset: Int = 20,
          page: Int = 1, building: String? = nil, floor: String? = nil,
          extensions: GeoRequestExtension = .base, useSig: Bool = false,
@@ -58,7 +58,7 @@ public struct GeoSearchService {
 }
 
 public struct GeoSearchResponse: Codable {
-    struct GeoSuggestion: Codable {
+    public struct GeoSuggestion: Codable {
         struct GeoCity: Codable {
             let name: String
             let num: String
@@ -73,8 +73,8 @@ public struct GeoSearchResponse: Codable {
             cities = try values.decode(Array<GeoCity>.self, forKey: .cities)
         }
     }
-    struct GeoSearchPOI: Codable {
-        struct GeoIndoorData: Codable {
+    public struct GeoSearchPOI: Codable, GeoMapQuadTreeNodeDataDelegate {
+        public struct GeoIndoorData: Codable {
             let cpid: String?
             let floor: String?
             let truefloor: String?
@@ -87,7 +87,7 @@ public struct GeoSearchResponse: Codable {
                 cmsid = try? values.decode(String.self, forKey: .cmsid)
             }
         }
-        struct GeoSearchPhoto: Codable {
+        public struct GeoSearchPhoto: Codable {
             let title: String?
             let url: String?
             public init(from decoder: Decoder) throws {
@@ -96,7 +96,7 @@ public struct GeoSearchResponse: Codable {
                 url = try? values.decode(String.self, forKey: .url)
             }
         }
-        struct GeoBizExtension: Codable {
+        public struct GeoBizExtension: Codable {
             let rating: String?
             let cost: String?
             let meal_ordering: String?
@@ -104,7 +104,7 @@ public struct GeoSearchResponse: Codable {
             let ticket_ordering: String?
             let hotel_ordering: String?
         }
-        struct GeoChildren: Codable {
+        public struct GeoChildren: Codable {
             let id: String
             let name: String
             let sname: String
@@ -113,47 +113,62 @@ public struct GeoSearchResponse: Codable {
             let distance: String
             let subtype: String
         }
-        let id: String
-        let name: String
-        let type: String
-        let typecode: String
-        let biz_type: String?
-        let address: String
-        let location: String
-        let distance: String?
-        let tel: String?
-        let postcode: String?
-        let website: String?
-        let email: String?
-        let pcode: String?
-        let pname: String?
-        let citycode: String?
-        let cityname: String
-        let adcode: String?
-        let adname: String
-        let entr_location: String?
-        let exit_location: String?
-        let navi_poiid: String?
-        let gridcode: String?
-        let alias: String?
-        let business_area: String?
-        let parking_type: String?
-        let tag: String?
-        let indoor_map: String?
-        let indoor_data: GeoIndoorData
-        let groupbuy_num: String?
-        let discount_num: String?
-        let biz_ext: GeoBizExtension?
-        let event: String?
-        let importance: String?
-        let shopid: String?
-        let shopinfo: String?
-        let poiweight: String?
-        let match: String
-        let recommend: String
-        let timestamp: String?
-        let children: [GeoChildren]
-        let photos: [GeoSearchPhoto]
+        public let id: String
+        public let name: String
+        public let type: String
+        public let typecode: String
+        public let biz_type: String?
+        public let address: String
+        public let location: String
+        public let distance: String?
+        public let tel: String?
+        public let postcode: String?
+        public let website: String?
+        public let email: String?
+        public let pcode: String?
+        public let pname: String?
+        public let citycode: String?
+        public let cityname: String
+        public let adcode: String?
+        public let adname: String
+        public let entr_location: String?
+        public let exit_location: String?
+        public let navi_poiid: String?
+        public let gridcode: String?
+        public let alias: String?
+        public let business_area: String?
+        public let parking_type: String?
+        public let tag: String?
+        public let indoor_map: String?
+        public let indoor_data: GeoIndoorData
+        public let groupbuy_num: String?
+        public let discount_num: String?
+        public let biz_ext: GeoBizExtension?
+        public let event: String?
+        public let importance: String?
+        public let shopid: String?
+        public let shopinfo: String?
+        public let poiweight: String?
+        public let match: String
+        public let recommend: String
+        public let timestamp: String?
+        public let children: [GeoChildren]
+        public let photos: [GeoSearchPhoto]
+        public var clLocation: CLLocation? {
+            let coordinates = location.components(separatedBy: ",")
+            guard let lat = coordinates.first, let lon = coordinates.last,
+                let latitude = CLLocationDegrees(lat),
+                let longitude = CLLocationDegrees(lon) else {
+                    return nil
+            }
+            return CLLocation(latitude: latitude, longitude: longitude)
+        }
+        public var quadTreeNodeData: GeoMapQuadTreeNodeData {
+            let loc = clLocation?.coordinate
+            return GeoMapQuadTreeNodeData(x: loc?.latitude ?? 0,
+                                          y: loc?.longitude ?? 0,
+                                          data: self)
+        }
         public init(from decoder: Decoder) throws {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             id = try values.decode(String.self, forKey: .id)
@@ -202,9 +217,9 @@ public struct GeoSearchResponse: Codable {
     private let status: String
     private let info: String
     private let infocode: Int
-    let count: Int
-    let suggestion: GeoSuggestion
-    let pois: [GeoSearchPOI]
+    public let count: Int
+    public let suggestion: GeoSuggestion
+    public let pois: [GeoSearchPOI]
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         status = try values.decode(String.self, forKey: .status)
